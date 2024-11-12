@@ -1,0 +1,107 @@
+/* Estilo da página e coração animado */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f8d9e0, #fce4ec); /* Fundo com gradiente suave */
+    font-family: Arial, sans-serif;
+}
+
+/* Container centralizado */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+/* Coração animado */
+.heart {
+    width: 100px;
+    height: 100px;
+    background-color: #ff6b81;
+    position: relative;
+    transform: rotate(45deg);
+    cursor: pointer;
+    animation: heartbeat 1s infinite;
+    box-shadow: 0px 8px 15px rgba(255, 107, 129, 0.5); /* Sombra para dar profundidade */
+    transition: transform 0.2s ease; /* Efeito suave ao passar o mouse */
+}
+
+.heart:hover {
+    transform: rotate(45deg) scale(1.1); /* Efeito de "zoom" ao passar o mouse */
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background-color: #ff6b81;
+    border-radius: 50%;
+    position: absolute;
+    box-shadow: 0px 8px 15px rgba(255, 107, 129, 0.3); /* Sombra nas partes superiores */
+}
+
+.heart::before {
+    top: -50px;
+    left: 0;
+}
+
+.heart::after {
+    left: 50px;
+    top: 0;
+}
+
+/* Animação de bater do coração */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1) rotate(315deg); }
+    50% { transform: scale(1.2) rotate(315deg); }
+}
+
+/* Nova animação de crescimento após o clique */
+@keyframes grow {
+    0% { transform: scale(1) rotate(315deg); }
+    100% { transform: scale(1.5) rotate(315deg); opacity: 0; }
+}
+
+/* Classe para aplicar a nova animação de crescimento */
+.grow-animation {
+    animation: grow 0.8s forwards;
+}
+
+/* Estilo da mensagem */
+.hidden {
+    display: none;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 25px;
+    color: #ff6b81;
+    font-family: 'Comic Sans MS', cursive;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra no texto para destaque */
+    opacity: 0; /* Para a animação de fade-in */
+    animation: fadeIn 1.3s forwards 0.8s; /* Fade-in suave com atraso */
+}
+
+#message2 {
+    margin-top: 20px;
+    font-size: 25px;
+    color: #ff6b81;
+    font-family: 'Comic Sans MS', cursive;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Sombra no texto para destaque */
+    opacity: 0; /* Para a animação de fade-in */
+    animation: fadeIn 1.3s forwards 0.8s; /* Fade-in suave com atraso */
+}
+
+/* Animação de fade-in para a mensagem */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
